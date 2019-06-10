@@ -13,8 +13,6 @@ pool.on("error", (err, client) => {
 });
 
 const executeQuery = (query, params) => {
-  console.log("TUTO", process.env.CUIDATEDBUSER);
-
   return new Promise((resolve, reject) => {
     pool
       .connect()
