@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha 'test/**/*.js'",
     "start": "node src/index.js",
-    "start-prod":"pm2 start ecosystem.config.js --env production",
-    "prettier":"node_modules/.bin/prettier  --write  \"src/**/*.js\"",
-    "build" : "node scripts/build.js"
+    "start-prod": "pm2 start ecosystem.config.js --env production",
+    "prettier": "node_modules/.bin/prettier  --write  \"src/**/*.js\"",
+    "build": "rm -rf dist/; node scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -25,13 +25,18 @@
     "pg": "^7.11.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "husky": "^2.4.0",
+    "mocha": "^6.1.4",
     "pkg": "^4.4.0",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "proxyquire": "^2.1.0",
+    "sinon": "^7.3.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier"
+      "pre-commit": "npm run prettier",
+      "pre-push": "npm test"
     }
   }
 }
