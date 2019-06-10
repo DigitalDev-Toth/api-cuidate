@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "start-prod":"pm2 start ecosystem.config.js --env production",
+    "prettier":"node_modules/.bin/prettier  --write  \"src/**/*.js\"",
+    "build" : "node scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -22,13 +25,13 @@
     "pg": "^7.11.0"
   },
   "devDependencies": {
-    "prettier": "1.18.2",
-    "husky": "^2.4.0"
+    "husky": "^2.4.0",
+    "pkg": "^4.4.0",
+    "prettier": "1.18.2"
   },
-  "husky": { 
+  "husky": {
     "hooks": {
-       "pre-commit": "node_modules/.bin/prettier  --write  \"src/**/*.js\""
+      "pre-commit": "npm run prettier"
     }
   }
-
 }

@@ -1,5 +1,4 @@
 const { Pool } = require("pg");
-
 const pool = new Pool({
   user: process.env.CUIDATEDBUSER,
   host: process.env.CUIDATEDBHOST,
@@ -14,6 +13,8 @@ pool.on("error", (err, client) => {
 });
 
 const executeQuery = (query, params) => {
+  console.log("TUTO", process.env.CUIDATEDBUSER);
+
   return new Promise((resolve, reject) => {
     pool
       .connect()
