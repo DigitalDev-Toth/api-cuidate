@@ -1,6 +1,9 @@
+var compression = require("compression");
 const express = require("express");
 const app = express();
 const creditCards = require("./controllers/creditCards");
+
+app.use(compression());
 
 app.get("/cc", creditCards.get);
 

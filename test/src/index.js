@@ -5,10 +5,12 @@ const proxyquire = require('proxyquire');
 const expect = chai.expect;
 const listener = sinon.spy();
 const controller = sinon.spy();
+const use = sinon.spy();
 
 const app = {
     get: controller,
-    listen: listener
+    listen: listener,
+    use: use
 }
 const index = proxyquire('../../src/index.js',  {
     'express': () => {
@@ -16,7 +18,7 @@ const index = proxyquire('../../src/index.js',  {
     },
     './controllers/creditCards': () => {
         return {get : controller}
-    }    
+    }
 })
 describe('index', function() {
     describe('start', function() {
