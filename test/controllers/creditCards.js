@@ -74,7 +74,7 @@ const res =  {
         }
     }
 }
-describe('credit Card', function() {
+describe('credit Card Controller', function() {
     describe('get', function() {
         it('should respont status 200 and the json correspond when client not exist', async() => {
             req.query.client = null;
