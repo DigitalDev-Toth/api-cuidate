@@ -19,7 +19,8 @@ const index = proxyquire('../../src/index.js',  {
     './controllers/creditCards': () => {
         return {get : controller}
     }
-})
+});
+
 describe('index', function() {
     describe('start', function() {
         it('should start a server in port 3000', function(done) {
