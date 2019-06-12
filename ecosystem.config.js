@@ -3,7 +3,7 @@ const name = pack.name;
 module.exports = {
     apps : [{
       name        : name,
-      script      : 'dist/' + name,
+      script      : name,
       interpreter : 'none',
       watch       : true,
       env: {
