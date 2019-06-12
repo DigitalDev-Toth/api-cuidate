@@ -1,5 +1,5 @@
 const pack = require('./package.json');
-const name = pack.name + '-' + pack.version;
+const name = pack.name;
 module.exports = {
     apps : [{
       name        : name,
