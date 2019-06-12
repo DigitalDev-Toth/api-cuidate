@@ -23,7 +23,7 @@ const index = proxyquire('../../src/index.js',  {
 describe('index', function() {
     describe('start', function() {
         it('should start a server in port 3000', function(done) {
-            expect(controller.calledOnce).to.be.true        
+            expect(controller.calledTwice).to.be.true        
             expect(listener.calledOnce).to.be.true
             done();
         });
